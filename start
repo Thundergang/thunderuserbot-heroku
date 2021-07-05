@@ -1,0 +1,52 @@
+#!/bin/bash
+
+
+_get_repolink () {
+    local regex
+    regex='(https?)://github.com/.+/.+'
+    if [[ $UPSTREAM_REPO == "thunderversiontwo" ]]
+    then
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1RodW5kZXJnYW5nL3RodW5kZXJ1c2VyYm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
+    elif [[ $UPSTREAM_REPO =~ $regex ]]
+    then
+        if [[ $UPSTREAM_REPO_BRANCH ]]
+        then
+            echo "${UPSTREAM_REPO}/archive/${UPSTREAM_REPO_BRANCH}.zip"
+        else
+            echo "${UPSTREAM_REPO}/archive/master.zip"
+        fi
+    else
+        echo "Something Went Wrong.. Please Get Help From @thunderuserbotchat "
+    fi
+}
+
+
+_set_bot () {
+    local zipfilepath
+    zipfilepath="thunderuserbot.zip"
+    wget -q $(_get_repolink) -O "$zipfilepath"
+    THUNDERPATH=$(zipinfo -1 "$zipfilepath" | grep -v "/.");
+    unzip -qq "$zipfilepath"
+    rm -rf "$zipfilepath"
+    sleep 5
+    cd $THUNDERPATH
+    python3 ../nandydark/updater.py ../requirements.txt requirements.txt
+    echo "    
+    ████████ ██   ██ ██    ██ ███    ██ ██████  ███████ ██████  
+       ██    ██   ██ ██    ██ ████   ██ ██   ██ ██      ██   ██ 
+       ██    ███████ ██    ██ ██ ██  ██ ██   ██ █████   ██████  
+       ██    ██   ██ ██    ██ ██  ██ ██ ██   ██ ██      ██   ██ 
+       ██    ██   ██  ██████  ██   ████ ██████  ███████ ██   ██ 
+    "
+
+    echo "
+    ██    ██ ███████ ███████ ██████  ██████   ██████  ████████ 
+    ██    ██ ██      ██      ██   ██ ██   ██ ██    ██    ██    
+    ██    ██ ███████ █████   ██████  ██████  ██    ██    ██    
+    ██    ██      ██ ██      ██   ██ ██   ██ ██    ██    ██    
+     ██████  ███████ ███████ ██   ██ ██████   ██████     ██    
+    "
+    python3 -m thunderbot
+}
+
+_set_bot
