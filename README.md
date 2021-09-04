@@ -1,6 +1,7 @@
-<p align="left"><a href="https://github.com/Thundergang/thunderuserbot"><img src="https://github-readme-stats.vercel.app/api/pin?username=Thundergang&show_icons=true&theme=dark&hide_border=true&repo=thunderuserbot-heroku"></a></p><p align="centre"><a href="https://t.me/thunderuserbot">
+<p align="left"><a href="https://github.com/Thundergang/thunderuserbot"><img src="https://github-readme-stats.vercel.app/api/pin?username=Thundergang&show_icons=true&theme=dark&hide_border=true&repo=thunderuserbot-heroku"></a></p><p align="centre">
 
 # Deploying on heroku
+
 <img src="https://telegra.ph/file/f9f72d6a0ed19fac35323.jpg">
 
 If you're getting error as the above image.. Don't get worried, Just fork this repo from [here](https://github.com/Thundergang/thunderuserbot-heroku/fork) and Deploy to heroku. For getting help join our support group.
