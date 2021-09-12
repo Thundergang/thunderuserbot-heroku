@@ -136,7 +136,7 @@
   },{
     "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
   },{
-     "url":"https://github.com/nandydark/heroku-buildpack-neofetch.git"
+     "url":"https://github.com/nandydarkalt/neofetch-buildpack-heroku.git"
   },{
     "url":"https://github.com/heroku/heroku-buildpack-chromedriver"
   },{
